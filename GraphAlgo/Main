@@ -1,0 +1,56 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication62;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import sndlib.core.io.SNDlibIOException;
+import sndlib.core.io.SNDlibIOFactory;
+import sndlib.core.io.SNDlibParseException;
+import sndlib.core.io.SNDlibParser;
+import sndlib.core.model.Model;
+
+/**
+ *
+ * @author Ricardo KAKA
+ */
+public class JavaApplication62 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args)  {
+          Vertex v0 = new Vertex("Redvile");
+	Vertex v1 = new Vertex("Blueville");
+	Vertex v2 = new Vertex("Greenville");
+	Vertex v3 = new Vertex("Orangeville");
+	Vertex v4 = new Vertex("Purpleville");
+
+	v0.adjacencies = new Edge[]{ new Edge(v1, 5),
+	                             new Edge(v2, 10),
+                               new Edge(v3, 8) };
+	v1.adjacencies = new Edge[]{ new Edge(v0, 5),
+	                             new Edge(v2, 3),
+	                             new Edge(v4, 7) };
+	v2.adjacencies = new Edge[]{ new Edge(v0, 10),
+                               new Edge(v1, 3) };
+	v3.adjacencies = new Edge[]{ new Edge(v0, 8),
+	                             new Edge(v4, 2) };
+	v4.adjacencies = new Edge[]{ new Edge(v1, 7),
+                               new Edge(v3, 2) };
+        Vertex[] vertices = { v0, v1, v2, v3, v4 };
+        
+        Dijekstra.computePath(v2);
+        ArrayList path = (ArrayList) Dijekstra.getShortestPath(v3);
+        for(int i = 0 ; i < path.size() ; i++){
+            System.out.println(path.get(i));
+        }
+        // kind of making a spanning tree only!
+        
+        
+        
+        
+    }
+}
