@@ -1,0 +1,93 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication62;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import sndlib.core.io.SNDlibIOException;
+import sndlib.core.io.SNDlibIOFactory;
+import sndlib.core.io.SNDlibParseException;
+import sndlib.core.io.SNDlibParser;
+import sndlib.core.model.Model;
+
+/**
+ *
+ * @author Ricardo KAKA
+ */
+public class JavaApplication62 {
+
+    static HashMap map ;
+    static ArrayList currentPath = new ArrayList();
+    public static void main(String[] args)  {
+        Vertex v0 = new Vertex("v0");
+	Vertex v1 = new Vertex("v1");
+	Vertex v2 = new Vertex("v2");
+	Vertex v3 = new Vertex("v3");
+	Vertex v4 = new Vertex("v4");
+        Vertex v5 = new Vertex("v5");
+        Vertex v6 = new Vertex("v6");
+        Vertex v8 = new Vertex("v8");
+        Vertex v9 = new Vertex("v9");
+
+	v0.adjacencies = new Edge[]{ new Edge(v1, 5),
+	                             new Edge(v2, 10),
+                               new Edge(v3, 8) };
+	v1.adjacencies = new Edge[]{ 
+	                             new Edge(v4, 3),
+                                     new Edge(v5, 4)
+	                             };
+	
+	//v2.adjacencies = new Edge[]{ 
+	  //                           new Edge(v3, 2) };
+	
+        v4.adjacencies = new Edge[]{new Edge(v6,7)};
+        v5.adjacencies = new Edge[]{new Edge(v8,6), new Edge(v9,4)};
+        
+        Vertex[] vertices = { v0, v1, v2, v3, v4, v5,v6};
+        map = new HashMap();
+        map.put(v0, false);
+        map.put(v1, false);
+        map.put(v2, false);
+        map.put(v3, false);
+        map.put(v4, false);
+        map.put(v5, false);
+        map.put(v6, false);
+       // Dijekstra.computePath(v2);
+      //  ArrayList path = (ArrayList) Dijekstra.getShortestPath(v3);
+        //for(int i = 0 ; i < path.size() ; i++){
+          //  System.out.println(path.get(i));
+        //}
+        
+        currentPath.add(v0);
+        DFS(v0);
+        
+    }
+    
+    
+    public static void DFS(Vertex v){
+        if(v.adjacencies == null || v.adjacencies.length == 0){
+           System.out.println("--");
+            for(int i = 0 ; i < currentPath.size() ; i++){
+                System.out.println("Vertex"+ currentPath.get(i));
+            }
+            System.out.println("--");
+            currentPath.remove((Object)v);
+           
+        }else{
+           for(int i = 0 ; i < v.adjacencies.length ; i++){
+               if(map.get(v.adjacencies[i].target)!= true){
+                   currentPath.add(v.adjacencies[i].target);
+                   DFS(v.adjacencies[i].target);
+                   map.put(v.adjacencies[i].target, true);
+               }
+           }
+           
+           currentPath.remove(v);
+        }
+    }
+
+
+}
