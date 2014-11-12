@@ -1,0 +1,1352 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package linkedlistproblem;
+
+import java.util.HashMap;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author Ricardo KAKA
+ */
+public class LinkedListProblem {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws CloneNotSupportedException {
+         LinkedListProblem l = new LinkedListProblem();
+         l.startApplication();
+         
+         
+         
+         
+    }
+    public void startApplication() throws CloneNotSupportedException{
+         LinkedList root = new LinkedList(0);
+         LinkedList root1 = new LinkedList(1);
+         LinkedList root2 = new LinkedList(2);
+         LinkedList root3 = new LinkedList(3);
+         LinkedList root4 = new LinkedList(4);
+         LinkedList root5 = new LinkedList(5);
+         LinkedList root6 = new LinkedList(6);
+         insertElement(root,root1);
+         insertElement(root,root2);
+         insertElement(root,root3);
+         insertElement(root,root4);
+         insertElement(root,root5);
+         insertElement(root,root6);
+         
+           LinkedList root7 = new LinkedList(7);
+         LinkedList root8 = new LinkedList(8);
+         LinkedList root9 = new LinkedList(9);
+         LinkedList root10 = new LinkedList(10);
+         LinkedList root11= new LinkedList(11);
+         LinkedList root12 = new LinkedList(12);
+         LinkedList root13 = new LinkedList(13);
+         insertElement(root7,root8);
+        // insertElement(root7,root9);
+        // insertElement(root7,root10);
+        // insertElement(root7,root11);
+        // insertElement(root7,root12);
+        // insertElement(root7,root13);
+         
+        
+         
+         
+         
+         LinkedList clone = root.cloning();
+         
+         
+         
+         
+         
+         //LinkedList l = new LinkedList(0);
+        // oddAlternate(root,l);
+         
+        // delete(root,2);
+        // printLinkList(root);
+         //LinkedList ll = new LinkedList();
+         //swapping(root);
+        // reverseLinkedList(root);
+         
+         DoublyLinkedList roott = new DoublyLinkedList(1);
+         DoublyLinkedList roott1 = new DoublyLinkedList(3);
+         roott.left = null;
+         DoublyLinkedListInsert(roott,2);
+         DoublyLinkedListInsert(roott,3);
+         DoublyLinkedListInsert(roott,4);
+         DoublyLinkedListInsert(roott,5);
+         DoublyLinkedListInsert(roott,6);
+         
+         DoublyLinkedListInsert(roott,7);
+         
+       //  printDoubleLinkedList(roott);
+       //  ConstructBTree(roott);
+       //  LRUCacheImp(roott,5);
+        // LRUCacheImp(roott,6);
+        //  LRUCacheImp(roott,5);
+         //printLinkList(roott);
+        // printDoubleLinkedList(roott);
+         
+         
+         
+         
+         Link l = new Link(5);
+         l.down = new Link(7);
+         l.down.down = new Link(8);
+         l.right = new Link(10);
+         l.right.down = new Link(20);
+         l.right.right = new Link(19);
+         l.right.right.down = new Link(22);
+         
+       //  LinkedList result =  flatternList(l);
+         
+         //printLinkList(result);
+         
+       //  LinkedList lllll = new LinkedList(0);
+        
+         LinkedList lll = new LinkedList(10);
+        
+         LinkedList llll = new LinkedList(11);
+         
+         lll.next =llll ;
+         lll.next.next = new LinkedList(12);
+         lll.next.next.next = new LinkedList(13);
+        // lll.next.next.next.next = null;
+          lll.next.next.next.next = new LinkedList(19);
+         
+         lll.next.next.next.next.next = new LinkedList(25);
+         lll.next.next.next.next.next.next = null ;
+        
+            
+         reverseLinkedList(lll,3);
+        
+         System.out.println("akash");
+         
+         //removeLink(lll);
+        // lll.next.next = new LinkedList(13);
+        /*
+         lll.next.next.next = new LinkedList(10);
+         lll.next.next.next.next = new LinkedList(19);
+         
+         lll.next.next.next.next.next = new LinkedList(25);
+         
+         lll.next.next.next.next.next = new LinkedList(9);
+         lll.next.next.next.next.next.next = null ;
+        
+        */
+         
+         
+         LinkedList secondList = new LinkedList(10);
+         secondList.next = new LinkedList(19);
+         secondList.next.next = new LinkedList(25);
+         secondList.next.next.next = null;
+         
+         
+         //reverseKthNode(lllll,3);
+       //  printLinkList(recursive(lll,null));
+          // mergeTheList(lll,secondList);
+        // evenOdd(lll,lll);
+         
+        // System.out.println(checkCycle(lll));
+         
+         //deleteNextnum(lll);
+         //printLinkList(lll);
+         
+         //lll.next.next.next.next.next = new LinkedList(3);
+         
+         //lll.next.next.next.next.next.next = new LinkedList(1);
+          //lll.next.next.next.next.next.next.next = null;
+       //  changingtheList(lll);
+       //  printLinkList(lll)
+    }
+    
+    
+    public void LRU(DoublyLinkedList root,DoublyLinkedList insert){
+            DoublyLinkedList tempHead = root ;
+            
+            HashMap<DoublyLinkedList, Boolean> myMap = new HashMap<DoublyLinkedList, Boolean>();
+            if(myMap.get(myMap)!=null){
+                while(root != null){
+                      if(root.right != null){
+                          if(root.right.value == insert.value){
+                              root.right = root.right.right ;
+                              
+                              insert.right = tempHead.right;
+                              tempHead = insert;
+                              
+                              
+                              break ;
+                          }
+                      }
+                }
+                
+                
+            }else{
+            
+            }
+            
+        
+    }
+    
+    public LinkedList removeLink(LinkedList root, LinkedList root1){
+       //  HashMap<Character> trackNode = new HashMap();
+        LinkedList tempRoot1 = root   ;
+        LinkedList tempRoot2 = root1 ;
+        
+         while(root != null){
+             
+             root1 = tempRoot2;
+             while(root1 != null){
+                 if(root1.value == root.value){
+                     if(checkBothSame(root,root1)){
+                         return root ;
+                     }
+                 }
+                 
+                 root1 = root1.next ;
+             }
+             
+             root = root.next  ;
+         }
+        
+         return null  ;
+    
+    }
+    
+    public boolean sumOfList(LinkedList root, LinkedList root2, LinkedList root3, int key){
+        LinkedList tempRoot2 = root2 ;
+        LinkedList tempRoot3 = root3;
+        while(root != null){
+            root2 = tempRoot3;
+            while(root2 != null){
+                root3 = tempRoot3;
+                while(root3 != null){
+                    
+                    if(root.value + root2.value + root3.value == key ){
+                        return true ;
+                    }
+                    root3 = root3.next;
+                }
+                root2 = root2.next;
+            }
+            
+            root = root.next;
+        }
+        
+        return false ;
+    }
+    
+    public boolean checkBothSame(LinkedList root1, LinkedList root2){
+        while(root1!=null && root2!=null){
+            if(root1.value != root2.value){
+                return false;
+            }
+            root1 = root1.next;
+            root2 = root2.next ;
+        }
+        if(root1 == null && root2 == null){
+            return true ;
+        }else{
+            return false ;
+        }
+    }
+    
+    
+    public void insert(LinkedList root, LinkedList element){
+        // Two way implement
+        LinkedList tempRoot= root ;
+        if(root.next == null){
+            root.next = element;
+            element.next = null ;
+        }else{
+            boolean added = false  ;
+            LinkedList tempList = null ;
+            while(root.next != null){
+                
+                 if(root.next.next != null){
+                    if(element.value> root.value && element.value < root.next.next.value){
+                        element.next = root.next.next;
+                        root.next = element;
+                        added = true ;
+                        break ;
+                    }
+                 }else{
+                     break;
+                 }
+                 
+                 root = root.next;
+            }
+            
+            if(!added){
+                tempList.next = element;
+                element.next = null;
+            }
+        
+        }
+    }
+    
+    public void recursiveInsert(LinkedList root,LinkedList prev, LinkedList element){
+            
+        
+            LinkedList next = root.next ;
+            if(next == null){
+                root.next =element;
+                element.next = null;
+                return ;
+            }else if(root.value > element.value){
+                prev.next = element;
+                element.next = root ;
+                return ;
+            }
+            else{
+                 recursiveInsert(next,root,element);
+            }
+           }
+    
+    public void splitTwoHalves(LinkedList root){
+        LinkedList tempRoot = root ;
+        int lengthofList = lengthofCircular(root);
+       // lastNodeofCir()
+        
+        while(lengthofList >= 1){
+            
+            root = root.next ;
+            lengthofList -- ;
+        }
+        
+    
+    }
+    
+    public LinkedList lastNodeofCir(LinkedList root){
+            LinkedList tempRoot = root ;
+            int counter = 1 ;
+            while(root.next == tempRoot){
+                counter++ ;
+                root = root.next;
+            }
+            
+            return root ;
+            
+    
+    
+    }
+    
+    public int lengthofCircular(LinkedList root){
+            LinkedList tempRoot = root ;
+            int counter = 1 ;
+            while(root.next == tempRoot){
+                counter++ ;
+                root = root.next;
+            }
+            
+            return counter ;
+            
+    }
+    
+    
+    
+    public void delete(LinkedList root){
+        int counter = 1 ;
+        
+        while(root.next.next != null){
+            
+            
+            counter++ ;
+        }
+    }
+    
+    
+    public boolean checkali(LinkedList root){
+            int length = findSize(root);
+            int index = 0;
+            LinkedList tempRoot = root;
+            if(length % 2 == 0){
+                while(index != length /2){
+                    tempRoot = tempRoot.next ;
+                    index ++ ;
+                }
+            }else{
+                 while(index != (length /2) + 1){
+                    tempRoot = tempRoot.next ;
+                    index ++ ;
+                }
+            
+            }
+            index = 0;
+            while(index < length /2 ){
+                if(root.value != tempRoot.value){
+                    return false ;
+                }
+                
+                root = root.next ;
+                tempRoot = tempRoot.next;
+                
+                index++ ;
+            }
+            
+            return true ;
+    }
+    
+    public void recurion(LinkedList root, LinkedList start, LinkedList prev){
+        
+        
+        if(root != null){
+            
+                  LinkedList next = root.next;
+                  LinkedList last = recur(next,start,root);
+                  root = null ;
+                  
+                  
+                 
+        }else
+        return ;
+        
+       // prev.next = null ;
+       // return root;
+    }
+    
+    
+    public void reverseLinkedList(LinkedList root,int counter){
+        if(root.next == null)
+            return ;
+        else{
+            
+            boolean first = true ;
+            LinkedList tempRoot = null ;
+            LinkedList prevRoot = root;
+            
+            while(root != null && counter!= 0){
+                if(tempRoot == null){
+                     tempRoot  = root.next;
+                     root.next = null ;
+                }else{
+                      tempRoot  = root.next;
+                      
+                      root.next = prevRoot ;
+                }
+                 prevRoot = root ;
+                 if(tempRoot !=null && counter != 1)
+                 root = tempRoot;
+                 else
+                     break ;
+                 counter -- ;
+            }
+                    
+        }
+        
+        
+    }
+    
+    public LinkedList recur(LinkedList root, LinkedList start, LinkedList prev){
+        
+        
+        if(root != null){
+            
+                  LinkedList next = root.next;
+                  LinkedList last = recur(next,start,root);
+                  root.next = prev;
+                  if(last == null){
+                         return root;
+                  }else{
+                      return last;
+                  }
+                 
+                  
+                 
+        }else
+        return null;
+        
+       // prev.next = null ;
+       // return root;
+    }
+    
+    public void Expr(LinkedList head){
+        head.next.next = head;
+        head.next = head.next.next;
+    }
+    
+    public void Reverse(LinkedList head){
+        LinkedList tempList = head ;
+        
+        
+        LinkedList tempCurrent = null ;
+        while(head != null || head.next != null ){
+            tempCurrent = head.next;
+            if(tempList == head){
+                LinkedList tempNext = head.next;
+                head.next = head.next.next;
+                tempNext.next = head;
+                head = tempNext;
+                tempList = head;
+                
+            }else{
+                  LinkedList prevNode =  getPreviousNode(tempList, head);
+                  prevNode.next = head.next;
+                  LinkedList temp = head.next;
+                  temp.next = head;
+                  head.next = tempCurrent;
+                  
+            }
+            
+            head = tempCurrent;
+        }
+    
+    }
+    
+    public void mergeTheList(LinkedList firstList, LinkedList secondList){
+        if(firstList == null && secondList == null){
+            return ;
+        }
+        
+        if(firstList.next == null){
+            firstList.next = secondList;
+        }
+        
+        
+        LinkedList tempFirstLink = null;
+        LinkedList tempSecondLink = null;
+        while(firstList != null && secondList != null ){
+                tempFirstLink = firstList.next ;
+                tempSecondLink = secondList.next;
+                
+                secondList.next = firstList.next;
+                firstList.next = secondList;
+                
+                firstList = tempFirstLink;
+                secondList = tempSecondLink;
+        }
+        
+        
+        
+        
+    }
+    
+    
+    public void DoublyLinkedListInsert(DoublyLinkedList root, int insertValue){
+        while(root.right != null){
+            root = root.right;
+        }
+        
+        DoublyLinkedList dList = new DoublyLinkedList(insertValue);
+        root.right = dList;
+        dList.left =root ;
+        dList.right = null ;
+        
+    }
+    
+   public void changeAlternate(LinkedList head ){
+       if(head.next == null || head.next.next == null)
+           return ;
+       else{
+          LinkedList lastElement =  getLastElement(head);
+          LinkedList tempHead = head ;
+          int counter = 1 ;
+          while(head != lastElement){
+              LinkedList tempNext = head.next;
+              if(counter %2 == 0){
+                 LinkedList prevNode =  getPreviousNode(tempHead, head);
+                 prevNode.next = tempHead.next ;
+                 head.next = lastElement.next;
+                 lastElement.next =head;
+              }
+              
+              counter ++ ;
+              head = tempNext;
+          }
+          
+       }
+       
+   } 
+   
+   public LinkedList getLastElement(LinkedList root){
+       while(root.next != null){
+           root = root.next ;
+       }
+       
+       return root ;
+   }
+    public void insertionSort(LinkedList head){
+        LinkedList tempHead = head   ;
+        LinkedList currentNode = null ;
+        LinkedList tempCurrentNode = null ;
+        LinkedList prevNode = null;
+        boolean checkLoop = true ;
+        currentNode = head.next ;
+        
+        while(currentNode != null){
+               tempCurrentNode = currentNode.next;
+               checkLoop = true ;
+               
+               prevNode = getPreviousNode(tempHead, currentNode);
+               while(prevNode != head){
+                  
+                   if(prevNode.value > currentNode.value){
+                       // Switch The Nodes
+                       LinkedList tempSecondRev = getPreviousNode(tempHead, prevNode);
+                       prevNode.next = currentNode.next;
+                       tempSecondRev.next = currentNode;
+                       currentNode.next = prevNode;
+                   }else{
+                       checkLoop = false ;
+                       break ;
+                   }
+                   
+                    prevNode = getPreviousNode(tempHead, currentNode);
+               }
+               if(checkLoop){
+                   if(currentNode.value < head.value){
+                        head.next = currentNode.next;
+                        currentNode.next = head ;
+                        head = currentNode;
+                        tempHead = currentNode;
+                   }
+               
+               }
+               
+                currentNode = tempCurrentNode;
+        }
+        
+    
+    }
+    
+    public LinkedList getPreviousNode(LinkedList head,LinkedList root) {
+          if(head.next == root)
+              return head ;
+          else{
+              while(head.next != null){
+                  if(head.next == root){
+                      return head ;
+                  }
+                  head = head.next ;
+              }
+          }
+          
+          return null ;
+    }
+    
+    public int findSize(LinkedList head){
+        int counter = 1 ;
+        while(head.next != null){
+            counter ++ ;
+            head = head.next;
+        }
+        
+        return counter;
+    }
+    
+    public void printDoubleLinkedList(DoublyLinkedList root){
+        while(root.right != null){
+            System.out.println(root.value);
+            root = root.right;
+        }
+        System.out.println(root.value);
+    
+    }
+    
+    
+   
+    // Technique // Revise it often //
+    
+    public boolean checkCycle(LinkedList root){
+        LinkedList prev = null;
+        if(root == root.next){
+            return true ;
+        }
+        
+        LinkedList pointer2 = null;
+        if(root.next.next != null){
+            pointer2 = root.next.next ;
+        }
+        
+        if(root == pointer2)
+            return true ;
+        while(root != null){
+            root = root.next ;
+            if(pointer2.next != null){
+                if(pointer2.next.next != null)
+                    prev = pointer2 ;
+                    pointer2 = pointer2.next.next;
+                    if(root == pointer2){
+                        
+                        System.out.println(countNumber(root));
+                        
+                        prev.next.next = null;
+                        return true ;
+                 }
+            }
+        }
+        
+        return false ;
+    }
+    
+    public void checking(LinkedList head){
+        
+    
+    }
+    
+    public LinkedList recursive(LinkedList root, LinkedList temp){
+       
+        if(root.next != null){
+          return  root.next =  recursive(root.next,temp);
+            
+        }else{
+            temp = root ;
+            return temp ;
+         }
+        
+       // temp.next = null ;
+       // return temp ;
+    }
+    
+    public void reverseKthNode(LinkedList root,int k){
+        LinkedList prev = null ;
+        LinkedList tempPrev  = root;
+        root = root.next ;
+        LinkedList tempPointer = null ;
+        int tempK = k ;
+        k--;
+        boolean check = false ;
+        while(root != null){
+            if(check == false){
+                if(k == 0 )
+                {
+                    if(root.next != null){
+                        tempPointer = root.next; 
+                        tempPrev.next = tempPointer;
+                    }else{
+                        root.next = prev ;
+                        prev.next = null ;
+                    }
+                    root = tempPointer;
+                    check = true ;
+                    k=1 ;
+                    prev = null ;
+                    //tempPrev = 
+                }else{
+                    if(prev ==null)
+                        prev = root ;
+
+
+                    root = root.next ;
+                    k-- ;
+
+                }
+            }else{
+                tempPrev = root;
+                root = root.next ;
+                k ++ ;
+                if(k == tempK)
+                    check = true ;
+            }
+        }
+    }
+    public void deleteNextnum(LinkedList root){
+        LinkedList prev = null ;
+        
+        
+        while(root.next != null){
+            
+            if(root.value < root.next.value){
+                if(prev == null){
+                    root.value = root.next.value ;
+                    root.next = root.next.next ;
+                }else{
+                    prev.next = root.next ;
+                    root.next = null;
+                    root = prev.next;
+                }
+            }else{
+                prev = root;
+                root = root.next ;
+            }
+        
+        }
+    
+    }
+    
+    public int countNumber(LinkedList root){
+        
+        LinkedList tempRoot = root ;
+        root = root.next ;
+        int counter = 1 ;
+        while(root != tempRoot){
+            counter++ ;
+            root = root.next ;
+        }
+        
+        return counter ;
+    }
+    
+    public void evenOdd(LinkedList root,LinkedList head){
+            
+        LinkedList prev = null;
+        LinkedList lastVisitedOdd = null;
+        boolean check =false ;
+        LinkedList nowOdd = null;
+     
+            while(root != null){
+                
+                if(root.value % 2 == 0){
+                    
+                    
+                    if(lastVisitedOdd != null){
+                        prev.next = root;
+                        if(lastVisitedOdd.next != null)
+                        nowOdd.next = nowOdd.next.next;
+                        root.next = lastVisitedOdd;
+                    }
+                    prev = root;
+                    
+                }else{
+                    if(!check)
+                        lastVisitedOdd = root;
+                    
+                    nowOdd = root;
+                }
+                
+                root = root.next ;
+            
+            }
+                
+        
+        
+    }
+     
+    public void recursiveTraverse(DoublyLinkedList root,int number ){
+           if(root.left == null || root.right == null){
+               return ;
+           }     
+        
+           
+           
+           
+         //  recursiveTraverse(middleNode.left,number/2 );
+         //  recursiveTraverse(middleNode.right,number- number/2 -1);
+    
+           
+    }
+    
+    
+   
+    
+    
+    public void sortTheList(LinkedList root){
+        LinkedList tempRoot = root;
+        root = root.next;
+        
+        // find minimum
+        
+        
+    }
+    
+    
+    public void insertionSort(){
+    
+    }
+    
+    
+    public void ConstructBTree(DoublyLinkedList root){
+           int length =  findLenght(root);
+           DoublyLinkedList tempRoot = null;
+           int middle = length /2 ;
+           DoublyLinkedList middleNode = getNodeWithIndex(root,middle);
+           
+           
+           if(middleCut(middleNode)){
+                while(true){
+                    if(!middleCut(middleNode.left.left) || !middleCut(middleNode.right.right)){
+                         break ;
+                     }
+                     
+                }
+           }
+           
+           
+           
+    }
+    
+   
+    
+    public boolean middleCut(DoublyLinkedList middleNode){
+            
+              boolean check = true ;
+              if(middleNode.left.left.left!= null){
+                   middleNode.left = middleNode.left.left;
+                   middleNode.left.right = null;
+              }else {
+                  if(middleNode.left.left == null){
+                      middleNode.left.right = null;
+                  }else{
+                      middleNode.left.right = null;
+                  }
+                  check = false ;
+              }
+               if(middleNode.right.right.right!= null){
+                   middleNode.right = middleNode.right.right;
+                   middleNode.right.left = null;
+               }else{
+                   if(middleNode.right.right == null){
+                      middleNode.right.left = null;
+                  }else{
+                      middleNode.right.left = null;
+                  }
+                   
+                   check = false ;
+               }
+
+               return check ;
+    }
+    
+    public DoublyLinkedList getNodeWithIndex(DoublyLinkedList root,int middle){
+        DoublyLinkedList searchNode = null;
+        int counter =1 ;
+        while(root.right !=null){
+            if(middle == counter ){
+                return root ;
+            }
+            root = root.right ;
+        }
+        
+        return null ;
+    }
+    
+    
+    
+    
+    public void changingtheList(LinkedList root){
+        int shouldVisit [] = new int[]{0,1,2};
+        int currentvisit = 0;
+        
+        LinkedList lastVisit = null ;
+        LinkedList nextStart = null;
+        LinkedList next = null ;
+        
+       while(true){ 
+            
+            boolean check = false;
+            while(root != null){
+                if(root.value != shouldVisit[currentvisit] && !check){
+                    nextStart = root;
+                    //next = root ;
+                    check = true ;
+                }
+                
+                if(root.value != shouldVisit[currentvisit]){
+                    next =root;
+                }
+                if(root.value == shouldVisit[currentvisit] && next != null){
+                    if(next.next.next != null)
+                        next.next = next.next.next ;
+                    else{
+                        next.next = null;
+                        root.next = nextStart;
+                         lastVisit.next = root;
+                        break ;
+                    } root.next = nextStart;
+                    lastVisit.next = root;
+                }
+                
+                if(root.value == shouldVisit[currentvisit])
+                    lastVisit = root ;
+                root = root.next ;
+            }
+            next = null;
+            root = nextStart ;
+            currentvisit ++ ;
+            if(currentvisit >= shouldVisit.length)
+                break ;
+       }
+    }
+    
+    public LinkedList flatternList(Link root){
+        Queue q = new PriorityQueue(7, new LinkComparator());
+        q.add(root);
+        
+        LinkedList resultLink = new LinkedList(root.value);
+        resultLink.next = null ;
+        LinkedList tempResult = resultLink ;
+        while(!q.isEmpty()){
+            Link currentLink = (Link) q.poll();
+            System.out.println("Link" + currentLink.value);
+            if(currentLink.right != null && currentLink.down != null){
+                q.add(currentLink.right);
+                q.add(currentLink.down);
+            }else if(currentLink.right != null){
+                q.add(currentLink.right);
+                
+            }else if(currentLink.down != null){
+                q.add(currentLink.down);
+            }
+            if(currentLink.value != resultLink.value){
+                resultLink.next = new LinkedList(currentLink.value);
+                resultLink = resultLink.next ;
+                resultLink.next = null ;
+            }
+            
+        }
+        
+        return tempResult;
+        
+    }
+    
+    
+    
+    public void LRUCacheImp(DoublyLinkedList root,int added){
+        // two pointer
+        DoublyLinkedList tempRoot = root;
+        root = root.right ; 
+        DoublyLinkedList front = root;
+        DoublyLinkedList rear = null;
+        DoublyLinkedList tempFront = front;
+        while(tempFront.right != null){
+            tempFront = tempFront.right;
+        }
+        rear = tempFront;
+        
+        // found it
+        
+        boolean found = false;
+        DoublyLinkedList tempFound =null;
+        DoublyLinkedList SecondTempFront =front ;
+        
+        int length = findLenght(front);
+        
+        while(SecondTempFront != null){
+            if(SecondTempFront.value == added){
+                found = true;
+                tempFound = SecondTempFront;
+                break ;
+            }
+            SecondTempFront = SecondTempFront.right;
+        }
+        
+        if(!found || length > 4){
+            
+            DoublyLinkedList adding  = new DoublyLinkedList(added);
+            adding.left = front.left;
+            adding.right = front;
+            front.left = adding;
+            tempRoot.right = adding;
+        }else{
+            
+            DoublyLinkedList temp =  tempFound.left  ;
+            temp.right = tempFound.right;
+            tempFound.right.left = temp;
+            front.left = tempFound;
+            tempFound.right = front;
+            tempFound.left = tempRoot;
+            
+            front = tempFound;
+            tempRoot.right = front;
+        }
+        
+        
+        
+    
+    }
+    
+    
+    public int findLenght(DoublyLinkedList root){
+        int counter = 1 ;
+        while(root.right != null){
+            root = root.right;
+            counter++;
+        }
+        
+        return counter;
+    }
+    
+    public LinkedList findMin(LinkedList root){
+        int max = -1 ;
+        LinkedList tempNode = null ;
+        while(root.next != null){
+            if(root.value > max){
+                max = root.value;
+                tempNode = root;
+            }
+            root = root.next;    
+        }
+        
+        return tempNode;
+    }
+    
+    
+    public void check(LinkedList root) throws CloneNotSupportedException{
+           
+            LinkedList Tempproot = root;
+            root = root.next ;
+            LinkedList temp = root;
+            root = root.next;
+            
+            temp.next = temp.next.next;
+            root.next = temp;
+            Tempproot.next = root  ;
+            
+            
+            
+           // temp.next.next = 
+            
+    }
+    
+    
+    public void kthElementDelete(LinkedList root, int k){
+            LinkedList pointer1 = root;
+            LinkedList pointer2 = root;
+            
+            LinkedList prePointer2 = null;
+            LinkedList prePointer1 = null;
+            
+            int counter = 0;
+            while(true){
+                if(counter+1 >= k){
+                    break ;
+                }
+                
+                prePointer2 = pointer2;
+                pointer2 = pointer2.next ;
+               
+                counter ++ ;
+            }
+        
+            LinkedList tempCopyOfPointer2 = pointer2;
+            
+            while(pointer1.next.next != null){
+                prePointer1 = pointer1 ;
+                pointer1 = pointer1.next;
+                pointer2 = pointer2.next;
+                
+            }
+            
+            
+            LinkedList tempfirstnextStart = prePointer2.next.next;
+            LinkedList tempsecondnextStart = prePointer1.next.next;
+            
+            prePointer2.next = pointer1 ;
+            prePointer2.next.next = tempfirstnextStart ;
+            
+            prePointer1.next = tempCopyOfPointer2;
+            prePointer1.next.next = tempsecondnextStart;
+            
+            
+            
+            
+            /*
+        
+            pointer1.next = prePointer2.next.next   ;
+            prePointer2.next = pointer1 ;
+            System.out.println(pointer1.value);
+            */
+           // System.out.println(pointer2.value);
+        
+    }
+    
+    public void deleteElement(LinkedList root,int m,int n){
+            int counter  =0 ;
+            
+            while(true){
+                if(counter+2 >= m)
+                    break ;
+                
+                root = root.next;
+                counter++;
+                
+            }
+            
+            LinkedList copyOfRoot = root;
+            counter = 0 ;
+            
+            while(true){
+               
+                root = root.next ;
+                counter++ ;
+                 if(counter == n)
+                    break ;
+                
+            }
+            
+            copyOfRoot.next = root.next;
+            
+            
+            
+            
+            
+    }   
+    
+    public void mergeTwoList(LinkedList root,LinkedList root1){
+        if(root.next == null){
+            root.next = root1;
+        }else{
+            while(root != null && root1 !=null){
+                 LinkedList tempRoot1 =  root1 ;
+                 LinkedList nextofRoot = root.next;
+                 LinkedList nextofRoot1 = root1.next;
+                 root.next = tempRoot1 ;
+                 root.next.next = nextofRoot;
+                 root1 =  nextofRoot1;
+                 
+                 root = root.next.next;
+            }
+        
+        }
+        
+    }
+    
+    public void pairWiseSwap(LinkedList root){
+        LinkedList prev = root;
+        LinkedList curr = root.next;
+        root = curr;
+        while(true){
+            LinkedList next = curr.next;
+            if(next == null || next.next ==null){
+                prev.next = next;
+                break;
+            }
+            prev.next = next.next;
+            prev = next;
+            curr = prev.next;
+        }
+        
+        
+    }
+    public LinkedList swapping(LinkedList root){
+        int counter = 0;
+        if(root== null || root.next == null){
+            return root;
+        }
+        LinkedList prev = null;
+        while(root.next != null){
+              if(counter % 2 == 0){
+                root = root.next;
+                LinkedList  tempLinkedList = root;
+                //tempLinkedList = root.next;
+                if(prev == null){
+                   root.next = tempLinkedList.next;
+                }else{
+                   root.next = root.next.next;
+                   prev.next = tempLinkedList;
+                
+                }
+                tempLinkedList.next = root;
+                root = tempLinkedList;
+              }
+            counter ++;  
+            prev = root;
+            root = root.next;
+        }
+        return root;
+    }
+    
+    
+    public void Testing(LinkedList root,LinkedList tempRootEven){
+                        LinkedList tempEven = tempRootEven ;
+                        LinkedList tempTempRoot = root;
+                        root.next = null;
+                        tempRootEven = root;
+                        tempRootEven.next = tempEven;
+    }
+    
+    public void testing1(LinkedList root    , LinkedList tempRootEven){
+            
+            LinkedList tempRoot = root;
+            tempRoot.next = null;
+            tempRoot.next = tempRootEven ;
+            tempRootEven = tempRoot;
+    }
+    
+    
+    public LinkedList oddAlternate(LinkedList root, LinkedList even){
+        int counter = 0 ;
+        //root = root.next ;
+        LinkedList tempRootEven = null;
+        tempRootEven = (LinkedList) even;
+         LinkedList tempRoot = null;
+            try {
+                tempRoot = (LinkedList) root.clone();
+                tempRootEven = (LinkedList) tempRoot.clone();
+                tempRootEven.next = null;
+                tempRoot = tempRoot.next; 
+                counter ++ ;
+            }catch(Exception e){
+                   
+            }
+        
+        root = root.next;
+        LinkedList prev = null ;
+        while(root.next != null){
+           
+            
+            if(counter %2 == 0 ){
+                
+               
+                if(tempRootEven.next != null){
+                    
+                        Testing(root,tempRootEven);
+                      //  tempRootEven.next.next= tempEven ;
+                   
+                    
+                }else{
+                        testing1(root,tempRootEven);
+                
+                }
+               
+                if(counter != 0)
+                prev.next = root.next;
+            }
+                
+            counter ++ ;
+            prev = root;
+            root = root.next;
+        }
+        
+        
+         return tempRootEven;
+    }
+    
+    public void delete(LinkedList root, int index){
+        int counter = 0;
+        LinkedList prev = null ;
+        while(root.next != null){
+            
+            if(counter == index){
+                prev.next = root.next;
+                      
+            }
+            
+            prev = root ;
+            root = root.next;
+            counter ++;
+        }
+        
+    
+    }
+    
+    public void printLinkList(LinkedList root){
+         //System.out.println(root.value);
+        while(root.next != null){
+            
+            System.out.println(root.value);
+            root = root.next;
+        }
+           System.out.println(root.value);
+    }
+    
+    
+    public void insertElement(LinkedList root, LinkedList element){
+         while(root.next != null){
+             root = root.next;
+         }  
+         root.next = element;
+    }
+    
+    
+    
+    
+    
+}
