@@ -1,0 +1,319 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tree;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+/**
+ *
+ * @author Ricardo KAKA
+ */
+public class Tree {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Tree t = new Tree();
+        t.startApplication();
+    }
+    public void startApplication(){
+        Node root = new Node(0);
+        Node root1 = new Node(1);
+        Node root2 = new Node(2);
+        Node root3 = new Node(3);
+        Node root4 = new Node(4);
+        Node root5 = new Node(5);
+        Node root6 = new Node(6);
+        Node root7 = new Node(7);
+        
+        root.left = root1 ;
+        root.right = root2 ;
+        root1.left = root3 ;
+        
+        root2.left = root4 ;
+        root2.right = root5;
+        
+        root3.left = root6 ;
+        root3.right = root7 ;
+        
+        
+        System.out.println(longestDiameter1(root,0,root7));
+        
+        
+    }
+    
+    
+    public boolean binarySearch(int a[],int value, int low,int high){
+        if(low > high){
+            return false;
+        }else{
+            int mid = low+ high /2 ;
+            if(a[mid] == value){
+                return true ;
+            }
+            if(value > a[mid]){
+                return binarySearch(a,value,mid+1 ,high);
+            }
+            if(value < a[mid]){
+                return binarySearch(a,value,low ,mid-1);
+            }
+            
+        }
+        
+        return false ;
+    }
+    
+    public boolean binarySearch1(int a[], int value , int low, int high){
+        while(low < high){
+            int mid = low+high /2;
+            if(a[mid] == value){
+                return true ;
+            }
+            if(a[mid] < value){
+                low = mid + 1 ;
+            }else{
+                high = mid -1 ;
+            }
+        }
+        
+        return false ;
+    }
+    
+    
+    public int longestDiameter1(Node root,int depth, Node source){
+     
+        int leftDepth = 0 ;
+        int rightDepth = 0 ;
+        if(root == source){
+            return 1 ;
+        }
+        
+        if(root.left != null){
+             leftDepth = longestDiameter1(root.left,depth+1,source);
+             if(leftDepth != 0){
+                 return leftDepth+ 1 ;
+             }
+        }
+        if(root.right != null){
+         
+            rightDepth = longestDiameter1(root.right,depth+1,source);
+            
+            if(rightDepth != 0){
+                return rightDepth + 1 ;
+            }
+        }
+       
+            
+        return 0 ;
+    }
+    
+    
+    public Node findcommonAcc(Node root, int n1, int n2){
+            while(root != null){
+                if( n1 < root.value && n2 <root.value){
+                        findcommonAcc(root.left,n1,n2);
+                }
+                
+                if(n1 > root.value && n2> root.value){
+                         findcommonAcc(root.right,n1,n2);
+                }       
+                else break ;
+            }
+    }
+    
+    public void twoStack(Node root){
+        Stack stack1 = new Stack();
+        Stack stack2 = new Stack();
+        int level = 0 ;
+        stack1.push(root);
+        
+        while(!stack1.empty() || ! !stack2.empty()){
+            if(level % 2 == 0){
+                while(!stack1.empty()){
+                    Node CurrentNode = (Node) stack1.pop();
+                    System.out.println(CurrentNode.value);
+                    if(CurrentNode.right != null){
+                        stack2.push(CurrentNode.right);
+                        
+                    }
+                    if(CurrentNode.left != null){
+                        stack2.push(CurrentNode.right);
+                    }
+                    
+                }
+
+            }else{
+                while(!stack2.empty()){
+                    Node CurrentNode = (Node) stack2.pop();
+                    System.out.println(CurrentNode.value);
+                    
+                    if(CurrentNode.left != null){
+                        stack1.push(CurrentNode.right);
+                    }
+                    if(CurrentNode.right != null){
+                        stack1.push(CurrentNode.right);
+                        
+                    }
+                    
+                }
+
+            }
+            level ++ ;
+        
+        }
+        
+    }
+    
+    
+    public void changeSum(Node root, Node source){
+        if(root != null){
+            if(root.left == null && root.right == null){
+                return ;
+            }
+            
+            if(root.right != null && root.left != null){
+                changeSum(root.right,source);
+                changeSum(root.left,source);
+                
+                int diff = (root.left.value + root.right.value)- root.value;
+                if(diff < 0){   
+                    root.left.value = root.left.value + (-1)*diff ;
+                }else if(diff > 0){
+                    root.value = root.value + diff ;
+                }else{
+                    return ;
+                }
+            }else if(root.left != null){
+                int diff = root.value - root.left.value ;
+                if(diff > 0){
+                    root.left.value = root.value + diff ;
+                }if(diff < 0){
+                    root.value = root.value + (-1)* diff ;
+                }
+            }
+            
+          
+                
+            
+            
+            
+        }
+        
+    }
+    
+    
+    public boolean longestDiameter2(Node root){
+        boolean value = true  ;    
+        if(root != null){
+                
+                
+                if(root.left != null && root.right != null){
+                    if(root.value != root.left.value + root.right.value){
+                        return false ;
+                    }else{
+                       value =  longestDiameter2(root.left) ;
+                       if(!value)
+                           return false ;
+                       value = longestDiameter2(root.right) ;
+                       if(!value)
+                           return false ;
+                    }
+                    
+                    
+                }else if(root.left != null){
+                    if(root.value != root.left.value){
+                        return false ;
+                    }
+                    
+                }else if(root.right != null){
+                    if(root.value != root.right.value){
+                        return false ;
+                    }
+                }else{
+                    return true ;
+                }
+                
+                
+                
+            }
+        
+            return true ;
+    }
+    
+    
+    public int longestDiameter(Node root,int depth, Node source){
+     
+        int leftDepth = 0 ;
+        int rightDepth = 0 ;
+        if(root.left == null && root.right == null){
+            return depth ;
+        }
+        
+        if(root.left != null)
+             leftDepth = longestDiameter(root.left,depth+1,source);
+        if(root.right != null)
+             rightDepth = longestDiameter(root.right,depth+1,source);
+        
+        if(root == source){
+            System.out.println(leftDepth);
+            System.out.println(rightDepth);
+        }
+            
+        
+        if(leftDepth > rightDepth){
+            return leftDepth;
+        }else{
+            return rightDepth;
+        }
+       
+    }
+    
+    
+    public boolean checkClone(Node root, Node root1){
+        Queue q1 = new LinkedList();
+        Queue q2 = new LinkedList();
+        
+        if(root != root1){
+            return false ;
+        }else{
+            q1.add(root);
+            q2.add(root1);
+            
+            while(!q1.isEmpty() || !q2.isEmpty()){
+                Node current1 = (Node) q1.poll();
+                Node current2 = (Node) q2.poll();
+                
+                if(current1.value != current2.value ){
+                    return false ;
+                }else{
+                    
+                    if(current1.left != current2.left || current1.right != current2.right){
+                        return false ;
+                    }else{
+                        q1.add(current1.left );
+                        q2.add(current2.left);
+                        
+                        q1.add(current1.right );
+                        q2.add(current2.right);
+                        
+                    }   
+                }
+            }
+            
+            if(!q1.isEmpty() || !q2.isEmpty()){
+                return false ;
+            }
+        
+        }
+        
+        return true ;
+    }
+    
+    
+}
