@@ -1,0 +1,18 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package linkedlistproblem;
+
+/**
+ *
+ * @author Ricardo KAKA
+ */
+public class DoublyLinkedList {
+    int value;
+    DoublyLinkedList left;
+    DoublyLinkedList right;
+    DoublyLinkedList(int value){
+        this.value = value;
+    }
+}
